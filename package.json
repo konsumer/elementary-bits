@@ -1,0 +1,28 @@
+{
+  "name": "elementary-bits",
+  "version": "0.0.0",
+  "description": "This is me playing around with elementary.",
+  "private": true,
+  "scripts": {
+    "midi": "elementary -r esm ./demos/midi.js",
+    "vmidi": "elementary -r esm ./demos/vmidi.js",
+    "seq": "elementary -r esm ./demos/seq.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konsumer/elementary-bits.git"
+  },
+  "keywords": [],
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/konsumer/elementary-bits/issues"
+  },
+  "homepage": "https://github.com/konsumer/elementary-bits#readme",
+  "dependencies": {
+    "@nick-thompson/drumsynth": "^0.2.0",
+    "@nick-thompson/elementary": "^0.2.2",
+    "easymidi": "^2.0.5",
+    "esm": "^3.2.25"
+  }
+}
