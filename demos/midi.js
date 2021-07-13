@@ -3,9 +3,9 @@ import el from '@nick-thompson/elementary'
 import ds from '@nick-thompson/drumsynth'
 
 const voices = {
-  48: { gain: 1.0, gate: 0.0, key: 'k', instrument: ds.kick, params: [40, 0.104, 0.005, 0.4, 4] },
-  50: { gain: 1.0, gate: 0.0, key: 's', instrument: ds.clap, params: [800, 0.005, 0.204] },
-  52: { gain: 1.0, gate: 0.0, key: 'h', instrument: ds.hat, params: [800, 0.005, 0.204] }
+  48: { gain: 1.0, gate: 0.0, key: 'k' },
+  50: { gain: 1.0, gate: 0.0, key: 's' },
+  52: { gain: 1.0, gate: 0.0, key: 'h' }
 }
 
 function updateVoiceState (e) {
@@ -21,7 +21,12 @@ function updateVoiceState (e) {
 
 function drumVoice (voice) {
   const gate = el.const({ key: voice.key, value: voice.gate })
-  return el.mul(voice.gain, voice.instrument(...voice.params, gate))
+  switch (voice.key) {
+    case 'k': return el.mul(voice.gain, ds.kick(40, 0.104, 0.005, 0.4, 4, gate))
+    case 's': return el.mul(voice.gain, ds.clap(800, 0.005, 0.204, gate))
+    case 'h': return el.mul(voice.gain, ds.hat(800, 0.005, 0.204, gate))
+    default: console.error(`Unknown instrument: ${voice.key}`)
+  }
 }
 
 core.on('load', () => {
