@@ -4,9 +4,10 @@
   "description": "This is me playing around with elementary.",
   "private": true,
   "scripts": {
-    "midi": "elementary -r esm ./demos/midi.js",
-    "vmidi": "elementary -r esm ./demos/vmidi.js",
-    "seq": "elementary -r esm ./demos/seq.js"
+    "midi": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/midi.js",
+    "vmidi": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/vmidi.js",
+    "seq": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/seq.js",
+    "heart": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/heart.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
     "@nick-thompson/elementary": "^0.2.2",
     "easymidi": "^2.0.5",
     "esm": "^3.2.25"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }

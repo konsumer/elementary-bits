@@ -1,3 +1,5 @@
+// this is a simple self-sequenced drum loop
+
 import core from 'elementary-core'
 import el from '@nick-thompson/elementary'
 import dt from '@nick-thompson/drumsynth'
@@ -10,7 +12,7 @@ const kickPattern = [1, 0, 0, 1, 0, 1, 1, 0]
 const clapPattern = [0, 0, 1, 0, 0, 0, 1, 0]
 
 export const load = () => {
-  const gate = el.train(6)
+  const gate = el.train(4)
 
   const kickSeq = el.seq({ seq: kickPattern, hold: true }, gate)
   const clapSeq = el.seq({ seq: clapPattern }, gate)
@@ -31,10 +33,5 @@ export const load = () => {
     el.mul(0.75, hat)
   )
 
-  return [out, out]
+  core.render(out, out)
 }
-
-core.on('load', () => {
-  const [left, right] = load()
-  core.render(left, right)
-})
