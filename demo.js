@@ -8,13 +8,7 @@ if (!process.argv[2]) {
 }
 
 async function main () {
-  const { load, midi } = await import(`${process.argv[2]}`)
-
-  if (midi) {
-    core.on('midi', e => {
-      midi(e)
-    })
-  }
+  const load = (await import(`${process.argv[2]}`)).default
 
   if (load) {
     load()

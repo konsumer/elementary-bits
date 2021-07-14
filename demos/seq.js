@@ -11,7 +11,7 @@ function modulate (x, rate, amount) {
 const kickPattern = [1, 0, 0, 1, 0, 1, 1, 0]
 const clapPattern = [0, 0, 1, 0, 0, 0, 1, 0]
 
-export const load = () => {
+export default function () {
   const gate = el.train(4)
 
   const kickSeq = el.seq({ seq: kickPattern, hold: true }, gate)
