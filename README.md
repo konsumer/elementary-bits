@@ -2,19 +2,32 @@
 
 This is me playing around with [elementary](https://github.com/nick-thompson/elementary).
 
+It illustrates dynamic-loading (there is a central runtime that loads demo files) and virtual-midi stuff (which I will probly use for emulator.)
+
 On linux, you will need alsa for vmidi demo:
 
 ```sh
 sudo apt install libasound2-dev
 ```
 
-It illustrates dynamic-loading (there is a central runtime that loads demo files) and virtual-midi stuff (which I will probly use for emulator.)
+## ABI
 
+
+In order to maintain ABI-compatability, we need to lock in the version of node to elemenatary's version.
+I did it like this on linux:
+
+```sh
+npm i -g n  # install n to manage version
+n doctor    # check installation
+n i 16.0.0  # install correct ABI version
+
+
+```
 
 ## usage
 
 ```sh
-npm i         # install dependencies
+npm i          # install dependencies, make sure you are using 16.0.0 (see ABI above)
 
 npm run heart # demo - heart
 npm run seq   # demo - seq
