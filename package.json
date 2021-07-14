@@ -24,7 +24,8 @@
     "@nick-thompson/drumsynth": "^0.2.0",
     "@nick-thompson/elementary": "^0.2.2",
     "easymidi": "^2.0.5",
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "midi-note": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

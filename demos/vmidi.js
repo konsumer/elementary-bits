@@ -1,2 +1,34 @@
-console.error('not Implemented, yet.')
-process.exit(1)
+// this is a basic midi drum machine
+
+import core from 'elementary-core'
+import el from '@nick-thompson/elementary'
+import dt from '@nick-thompson/drumsynth'
+import easymidi from 'easymidi'
+import noteName from 'midi-note'
+
+const gates = {
+  C2: 0, // kick
+  D2: 0 // clap
+}
+
+const input = new easymidi.Input('Elementary Drum Machine', true)
+
+input.on('noteon', function (msg) {
+  const name = noteName(msg.note)
+  gates[name] = 1
+  console.log(gates)
+})
+
+input.on('noteoff', function (msg) {
+  const name = noteName(msg.note)
+  gates[name] = 0
+  console.log(gates)
+})
+
+export default function () {
+  const out = el.add(
+    el.mul(0.7, dt.kick(40, 0.104, 0.4, 0.4, 4, el.const({ key: 'kick', value: gates.C2 }))),
+    el.mul(0.6, dt.clap(800, 0.005, 0.204, el.const({ key: 'clap', value: gates.D2 })))
+  )
+  core.render(out, out)
+}
