@@ -1,4 +1,4 @@
-// this is a basic midi drum machine
+// this is a basic midi drum machine that starts a virtual midi device (so you can route to it)
 
 import core from 'elementary-core'
 import el from '@nick-thompson/elementary'
