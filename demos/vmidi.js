@@ -3,7 +3,7 @@
 import core from 'elementary-core'
 import el from '@nick-thompson/elementary'
 import dt from '@nick-thompson/drumsynth'
-import easymidi from 'easymidi'
+import midi from 'midi'
 import noteName from 'midi-note'
 
 const gates = {
@@ -11,18 +11,10 @@ const gates = {
   D2: 0 // clap
 }
 
-const input = new easymidi.Input('Elementary Drum Machine', true)
+const input = new midi.Input('Elementary Drum Machine', true)
 
-input.on('noteon', function (msg) {
-  const name = noteName(msg.note)
-  gates[name] = 1
-  console.log(gates)
-})
-
-input.on('noteoff', function (msg) {
-  const name = noteName(msg.note)
-  gates[name] = 0
-  console.log(gates)
+input.on('message', (deltaTime, message) => {
+  console.log(`m: ${message} d: ${deltaTime}`);
 })
 
 export default function () {

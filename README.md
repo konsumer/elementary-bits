@@ -17,18 +17,28 @@ In order to maintain ABI-compatability, we need to lock in the version of node t
 I did it like this on linux:
 
 ```sh
-npm i -g n  # install n to manage version
-n doctor    # check installation
-n i 16.0.0  # install correct ABI version
+# clean up old install
+rm -rf node_modules
+
+# install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+
+# the installer outpuyts this:
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+# get 16.0.0 version
+nvm install 16.0.0
+
+# use that version
+nvm use 16.0.0
 ```
 
 ## usage
 
 ```sh
-npm i          # install dependencies, make sure you are using 16.0.0 (see ABI above)
-
 npm run heart # demo - heart
 npm run seq   # demo - seq
 npm run midi  # demo - midi
