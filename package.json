@@ -4,7 +4,7 @@
   "description": "This is me playing around with elementary.",
   "private": true,
   "scripts": {
-    "abi": "elementary -r esm demos/abi.js",
+    "abi": "elementary demos/abi.js",
     "midi": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/midi.js",
     "vmidi": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/vmidi.js",
     "seq": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/seq.js",
