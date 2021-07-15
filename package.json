@@ -4,6 +4,7 @@
   "description": "This is me playing around with elementary.",
   "private": true,
   "scripts": {
+    "abi": "elementary -r esm demos/abi.js",
     "midi": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/midi.js",
     "vmidi": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/vmidi.js",
     "seq": "nodemon --exec 'elementary -r esm ./demo.js' ./demos/seq.js",
@@ -25,12 +26,13 @@
     "@nick-thompson/elementary": "^0.2.2",
     "esm": "^3.2.25",
     "midi": "^2.0.0",
-    "midi-note": "^1.0.0"
+    "midi-note": "^1.0.0",
+    "node-abi-version": "^1.2.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
   },
   "engines": {
-    "node": "16.0.0"
+    "node": "16.3.0"
   }
 }
